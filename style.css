@@ -18,6 +18,23 @@
     --rgba-white-03: rgba(255, 255, 255, 0.3);
 }
 
+.page-loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.spinner-border{
+    border-width: 2px;
+}
+
 .main-container {
     background-image: url(https://images.unsplash.com/photo-1479688895406-3f032f15f0ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80);
     background-size: cover;

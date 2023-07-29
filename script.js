@@ -183,7 +183,7 @@ function appendToDocument(jsonData) {
     convertUnixUTcToTime(sunrise, sunset, jsonData);
 }
 
-function getWeatherData(event) {
+async function getWeatherData(event) {
     if (event.key === "Enter") {
         addLoading();
 
@@ -197,30 +197,30 @@ function getWeatherData(event) {
             method: "GET"
         };
 
-        fetch(url, options)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(jsonData) {
+       try{
+            const response = await fetch(url, options);
+            const jsonData = await response.json();
 
-                if (jsonData.cod === "404" && jsonData.message === "city not found") {
-                    alert("City not found !");
-                    getWeatherDataOnLoad();
-                }
+            if (jsonData.cod === "404" && jsonData.message === "city not found") {
+                alert("City not found !");
+                getWeatherDataOnLoad();
+            }
 
-                console.log(jsonData);
-                bgImageChange(jsonData);
-                appendToDocument(jsonData);
-                removeLoading();
-            });
+            // console.log(jsonData);
+            bgImageChange(jsonData);
+            appendToDocument(jsonData);
+            removeLoading();
+       }catch(err){
+            console.error(err.messagge)
+            alerrt(err.messagge)
+       }
     }
 }
 
 //default weather
-function getWeatherDataOnLoad() {
+async function getWeatherDataOnLoad() {
     addLoading();
     let location = "Hyderabad";
-
     const apiKey = "9b9463da3e1fec74150dbd471369e7ef";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
 
@@ -228,15 +228,19 @@ function getWeatherDataOnLoad() {
         method: "GET"
     };
 
-    fetch(url, options)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(jsonData) {
-            bgImageChange(jsonData);
-            appendToDocument(jsonData);
-            removeLoading();
-        });
+    try {
+        const response = await fetch(url, options);
+        const jsonData = await response.json();
+        
+        bgImageChange(jsonData);
+        appendToDocument(jsonData);
+        removeLoading();
+        document.getElementById('pageLoading').style.display = "none";
+    } catch (error) {
+        // Handle any errors that occur during the API request
+        console.error("Error fetching weather data:", error);
+        alert(error.message);
+    }
 
 }
 getWeatherDataOnLoad();
