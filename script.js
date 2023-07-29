@@ -228,13 +228,13 @@ async function getWeatherDataOnLoad() {
         method: "GET"
     };
 
-    try {
+    try {    
+        const response = await fetch(url, options);
+        const jsonData = await response.json();
+
         setTimeout(() => {
             document.getElementById('pageLoading').style.display = "none";    
         }, 3000);
-
-        const response = await fetch(url, options);
-        const jsonData = await response.json();
 
         bgImageChange(jsonData);
         appendToDocument(jsonData);
