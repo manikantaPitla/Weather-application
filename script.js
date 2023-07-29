@@ -229,15 +229,17 @@ async function getWeatherDataOnLoad() {
     };
 
     try {
+        setTimeout(() => {
+            document.getElementById('pageLoading').style.display = "none";    
+        }, 3000);
+
         const response = await fetch(url, options);
         const jsonData = await response.json();
-        
+
         bgImageChange(jsonData);
         appendToDocument(jsonData);
         removeLoading();
-        document.getElementById('pageLoading').style.display = "none";
     } catch (error) {
-        // Handle any errors that occur during the API request
         console.error("Error fetching weather data:", error);
         alert(error.message);
     }
