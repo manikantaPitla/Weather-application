@@ -65,7 +65,7 @@ a:hover{
 }
 
 .page-logo{
-    width: 50px;
+    width: 45px;
 }
 
 .weather-title {
@@ -213,10 +213,6 @@ hr {
 .temperature-card{
     flex-grow: 1;
 }
-
-/* .more-details-card{
-    flex-grow: 1;
-} */
 
 .temperature-card{
     flex-grow: 1;
