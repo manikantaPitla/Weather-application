@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/43314e4458.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Application</title>
+</head>
+
+<body>
+    <div class="main-container" id="mainContainer">
+        <div class="blur-container placeholder-glow py-3 px-1 px-md-3">       
+            <div class="row m-0">
+                <nav class="col-12 m-0 mb-3">
+                    <div class="nav-card w-100 p-2 d-flex flex-row justify-content-between placeholder-glow">
+                        <div class="d-flex align-items-center">
+                            <img class="page-logo" src="logo.png" alt="">
+                            <h1 class="weather-title m-0 ml-2">Weather Application</h1>
+                        </div>
+                        <div class="pr-3 d-flex align-items-center">
+                            <a class="text-white about-link" id="AboutBtn">About</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="weather-container row m-0" id="weatherContainer">
+                <div class="col-12 col-md-6 col-lg-4 h">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="input-card w-100 mb-2">
+                            <input class="search-input" type="text" placeholder="search city" id="searchInput">
+                            <div class="search-icon" id="searchIcon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </div>
+    
+                        <div class="temperature-card mb-3 w-100">
+                            <div class="blur-temp-bg px-4 pt-2">
+                                <div class="city-country-container py-2">
+                                    <span class="placeholder remove-loading" id="cityAndCountry">Hyderabad, IN</span>
+                                </div>
+                                <hr class="my-2">
+    
+                                <div class="d-flex flex-row justify-content-between pt-1">
+                                    <div class="temp-section pl-4 pb-2">
+                                        <h1 class="temp-title placeholder remove-loading">Temperature</h1>
+                                        <h1 class="temp-result placeholder remove-loading mb-0" id="tempResult">36<sup>°C</sup></h1>
+                                    </div>
+                                    <div class="min-max-temp-section pt-4">
+                                        <p id="minTemperature" class="placeholder remove-loading">Min temp : 30.73<sup>°C</sup></p>
+                                        <p id="maxTemperature" class="mb-0 placeholder remove-loading">Max temp : 30.73<sup>°C</sup></p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="placeholder remove-loading cloud-image-bg mb-2 ">
+                                        <img id="cloudImage" class="cloud-image ">
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center w-50">
+                                        <div class="cloud-detail-bg mt-3 placeholder remove-loading">
+                                            <p id="clouds" class="m-0"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 h d-flex flex-column">
+                    <div class="more-details-card p-4 mb-3 pt-0">
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Humidity</span>
+                                    <span id="humidity">-</span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Real feel</span>
+                                    <span id="realFeel">-<sup></sup></span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Pressure</span>
+                                    <span id="pressure">-</span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder  remove-loading d-flex flex-row justify-content-between">
+                                    <span>Wind speed</span>
+                                    <span id="windSpeed">-</span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Wind direction</span>
+                                    <span id="windDirection">-</span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Latitude</span>
+                                    <span id="latitude">-</span>
+                                </div>
+                                <hr class="my-2">
+
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Longitude</span>
+                                    <span id="longitude">-</span>
+                                </div>
+                                <hr class="my-2">
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 h">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12 mb-3">
+                            <div class="more-details-card p-4">
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Sunrise</span>
+                                    <span id="sunRise">-</span>
+                                </div>
+                                <hr class="my-2">
+        
+                                <div class="placeholder remove-loading d-flex flex-row justify-content-between">
+                                    <span>Sunset</span>
+                                    <span id="sunSet">-</span>
+                                </div>
+                                <hr class="my-2">
+                            </div>
+                        </div>
+    
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="time-date-container d-flex flex-column justify-content-center p-4">
+                                <h1 class="placeholder remove-loading today-title mb-3">TODAY <span>(Indian Standard Time)</span></h1>
+                                <div class="placeholder-glow">
+                                    <p id="dateDisplay" class="placeholder remove-loading date-display d-block"></p>
+                                    <!-- <br class="m-0"/> -->
+                                    <p id="timeDisplay" class="placeholder remove-loading time-display m-0 d-block"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-0 about-container d-none" id="aboutContainer">
+                <div class="col-12 d-flex flex-column align-items-center">
+                    <div class="about-card w-100 mb-2 p-4">
+                        <h2 class="about-heading">About</h2>
+                        <p class="about-description">
+                            The <strong>Weather Application</strong> website is a user-friendly and informative web application designed to provide real-time weather updates for various cities around the world. Its primary focus is to offer users quick access to accurate weather data, helping them stay informed about current weather conditions and forecasts.
+                        </p>
+                        <h2 class="about-heading">Key Features</h2>
+                        <ul class="about-description">
+                            <li class="about-list-item"><strong>Weather Search:</strong> The website features a search input where users can enter the name of a city they want to know the weather for. Upon entering the city name and submitting the query, the website fetches the relevant weather data for that location.</li>
+                            <li class="about-list-item"><strong>Current Weather Display:</strong> The website prominently displays the current temperature of the searched city, along with a brief description of the weather conditions (e.g., cloudy, sunny, rainy, etc.). Additional details like minimum and maximum temperatures are also presented.</li>
+                            <li class="about-list-item"><strong>Detailed Weather Information:</strong> For users seeking more in-depth weather insights, the website offers comprehensive information such as humidity levels, real feel temperatures, atmospheric pressure, wind speed, wind direction, latitude, and longitude.</li>
+                            <li class="about-list-item"><strong>Sunrise and Sunset Times:</strong> The website provides the sunrise and sunset times for the selected city, allowing users to plan their day accordingly and make the most of daylight hours.</li>
+                            <li class="about-list-item"><strong>Responsive Design:</strong> The website is built with a responsive design, ensuring that users can access weather updates on various devices, including desktop computers, laptops, tablets, and smartphones.</li>
+                        </ul>
+                        <hr class="hr">
+                        <div class="">
+                            <h2 class="about-heading">Developer Contact</h2>
+                            <div class="py-2 d-flex flex-row">
+                                <a class="bg-contact-link" href="https://github.com/manikantaPitla" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a class="bg-contact-link" href="https://www.linkedin.com/in/manikanta8/" target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
