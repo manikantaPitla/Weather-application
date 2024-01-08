@@ -18,9 +18,9 @@ Welcome to the Weather Application - a user-friendly web tool that provides real
 Check out the live demo [here](#your-weather-application-live-url).
 
 ## How to Run Locally
-1. Clone the repository: `git clone https://github.com/your-username/Weather-Application.git`
+1. Clone the repository: `git clone https://github.com/manikantaPitla/Weather-application.git`
 2. Open `index.html` in your browser.
 
-Feel free to explore the code and contribute! Connect with me on [GitHub](https://github.com/your-username) and [LinkedIn](https://www.linkedin.com/in/your-linkedin-profile/) for more exciting projects.
+Feel free to explore the code and contribute! Connect with me on [GitHub](https://github.com/manikantaPitla) and [LinkedIn](https://www.linkedin.com/in/manikanta8/) for more exciting projects.
 
 🚀 Happy coding!
