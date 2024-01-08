@@ -15,7 +15,7 @@ Welcome to the Weather Application - a user-friendly web tool that provides real
 - OpenWeatherMap API for fetching real-time weather data
 
 ## Demo
-Check out the live demo [here](#your-weather-application-live-url).
+Check out the live demo [here](https://manikantapitla.github.io/Weather-application/).
 
 ## How to Run Locally
 1. Clone the repository: `git clone https://github.com/manikantaPitla/Weather-application.git`
